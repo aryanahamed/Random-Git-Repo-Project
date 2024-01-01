@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random GitHub Repo</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <main id="app">
+    <button id="open-repo-btn">
+        <span class="text">Random Github Repository</span>
+        <span class="shimmer"></span>
+    </button>
+
+    <script>
+        $(document).ready(function(){
+            $("#open-repo-btn").click(function(){
+                $.get("/random-repo", function(data, status){
+                    window.open(data, '_blank');
+                });
+            });
+        });
+    </script>
+</main>
+
+</body>
+<footer style="position: fixed; bottom: 0; width: 100%; text-align: center; padding: 10px; background-color: rgba(0,0,0,0.1); color: white;">
+    Button CSS style by <a style="color: white;" href="https://codepen.io/simeydotme" target="_blank">simeydotme</a>
+</footer>
+</html>
